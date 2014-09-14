@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CadastroVacinasActivity"
+            android:label="@string/title_activity_cadastro" >
+        </activity>
+        <activity
+            android:name=".InfoVacinasActivity"
+            android:label="@string/title_activity_info_vacinas" >
+        </activity>
     </application>
 
 </manifest>

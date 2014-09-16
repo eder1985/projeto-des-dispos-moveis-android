@@ -2,9 +2,38 @@
 <resources>
 
     <string name="app_name">E-Vacinas</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_cadastro">Cadastro</string>
     <string name="title_activity_info_vacinas">Informações</string>
-
+    
+    <string name="vacina_prompt">Escolha uma vacina</string>
+    <string-array name="vacina_arrays">
+        <item>BCG-ID(Tuberculose)</item>
+        <item>Duplo Adulto(Difeteria e Tétano)</item>
+        <item>Duplo Viral(Sarampo e Rubéola)</item>
+        <item>Febre Amarela</item>
+        <item>Gripe(Influenza)</item>
+        <item>Hepatite A</item>
+        <item>Hepatite B</item>
+        <item>Meningocócica(Meningite C)</item>
+        <item>Pentavalente (Difteria, Tétano, Coqueluche, Meningite e Hepatite B)</item>
+        <item>Pneumocócia 10(Pneumonia)</item>
+        <item>Tetravalente(Difeteria, Tétano, Coqueluche e Meningite)</item>
+        <item>Tetraviral(Sarampo, rubéola, caxumba e catapora)</item>
+        <item>Tríplice Bacteriana(Difeteria, Tétano e Coqueluche)</item>
+        <item>Tríplice Viral(Sarampo,Rubéola e Caxumba)</item>
+        <item>VIP(Poliomielite/Paral.Infantil)</item>
+        <item>VOP(Poliomielite/Paral.Infantil)</item>
+        <item>VORH(Rotavírus Humano)</item>
+    </string-array>
+    
+    <string name="faixa_etaria_prompt">Escolha uma faixa etária</string>
+    <string-array name="faixa_etaria_arrays">
+        <item>0 a 23 meses</item>
+        <item>2 a 9 anos</item>
+        <item>10 a 19 anos</item>
+        <item>20 a 59 anos</item>
+        <item>60 anos ou mais</item>
+        <item>Gestantes</item>
+    </string-array>
 </resources>

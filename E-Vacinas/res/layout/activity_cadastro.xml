@@ -14,15 +14,6 @@
         android:layout_height="wrap_content"
         android:entries="@array/vacina_arrays"
         android:prompt="@string/vacina_prompt" />
-      
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner2"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Salvar" />
 
     <ListView
         android:id="@+id/listView1"
@@ -42,5 +33,14 @@
         android:entries="@array/faixa_etaria_arrays"
         android:prompt="@string/faixa_etaria_prompt"
         android:layout_marginTop="0dp" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="Salvar" />
 
 </RelativeLayout>

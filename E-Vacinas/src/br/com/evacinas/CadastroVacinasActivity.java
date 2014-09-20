@@ -3,8 +3,8 @@ package br.com.evacinas;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import br.com.evacinas.dao.VacinaDao;
+import br.com.evacinas.helpers.CustomOnItemSelectedListener;
 import br.com.evacinas.models.Vacina;
 import br.com.evacinas.R;
 import android.app.Activity;
@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
@@ -25,7 +26,8 @@ public class CadastroVacinasActivity extends Activity {
 	String nome, faixa_etaria;
 	Button cadastrar;
 	Button editar;
-	private ListView listView;
+	ImageButton excluir;
+	ListView listview;
 	private Spinner spinner1, spinner2;
 
 	@Override
@@ -33,19 +35,20 @@ public class CadastroVacinasActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_cadastro);
 		
-		listView = (ListView) findViewById(R.id.listView1);
+		listview = (ListView) findViewById(R.id.listView1);
 		exibirLista();
 		
 		spinner1 = (Spinner) findViewById(R.id.spinner1);
 		spinner2 = (Spinner) findViewById(R.id.spinner2);
 		
-		nome = String.valueOf(spinner1.getSelectedItem());
-		faixa_etaria = String.valueOf(spinner2.getSelectedItem());
+		
+		
+		nome = spinner1.getSelectedItem().toString();
+		faixa_etaria = spinner2.getSelectedItem().toString();
 		
 		cadastrar = (Button) findViewById(R.id.btnSubmit);
-		
-		cadastrar.setOnClickListener(new OnClickListener() {
-			
+		cadastrar.setOnClickListener(new OnClickListener() {	
+				
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
@@ -65,8 +68,6 @@ public class CadastroVacinasActivity extends Activity {
 				
 				try {
 					dao.salvar(vacina);
-					//nome.setText("");
-					//descricao.setText("");
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
@@ -77,6 +78,7 @@ public class CadastroVacinasActivity extends Activity {
 		  }
 		});
 		
+		addListenerOnSpinnerItemSelection();
 	}
 
 	@Override
@@ -98,10 +100,18 @@ public class CadastroVacinasActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
+	public void addListenerOnSpinnerItemSelection() {
+		spinner1 = (Spinner) findViewById(R.id.spinner1);
+		spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+		
+		spinner2 = (Spinner) findViewById(R.id.spinner2);
+		spinner2.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+	 }
+	
 	public void exibirLista() {
 		try {
 			String[] from = new String[] { "codigo", "nome" };
-			int[] to = new int[] { R.id.spinner1, R.id.spinner2, };
+			int[] to = new int[] { R.id.listCod, R.id.listNome, };
 
 			VacinaDao vacinaDao = VacinaDao.getInstance(getApplicationContext());
 			List<Vacina> listaVacinas = new ArrayList<Vacina>();
@@ -113,17 +123,18 @@ public class CadastroVacinasActivity extends Activity {
 				HashMap<String, String> mapItens = new HashMap<String, String>();
 				
 				mapItens.put("codigo","" + listaVacinas.get(i).getId());
-				mapItens.put("nome", listaVacinas.get(i).getNome() );
+				mapItens.put("nome", listaVacinas.get(i).getNome());
 
 				mapItensLista.add(mapItens);
 			}
 			
-			//SimpleAdapter adapter = new SimpleAdapter(this, mapItensLista,
-			//	R.layout.activity_cadastro, from, to);
-			//listView.setAdapter(adapter);
+			SimpleAdapter adapter = new SimpleAdapter(this, mapItensLista,
+				R.layout.item_listview, from, to);
+			listview.setAdapter(adapter);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
 }

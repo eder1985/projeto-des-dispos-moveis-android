@@ -4,7 +4,7 @@
     <string name="app_name">E-Vacinas</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_cadastro">Cadastro de Vacinas</string>
-    <string name="title_activity_info_vacinas">Histórico de Vacinas</string>
+    <string name="title_activity_info_vacinas">Quadro Geral de Vacinas</string>
     
     <string name="vacina_prompt">Escolha uma vacina</string>
     <string-array name="vacina_arrays">
